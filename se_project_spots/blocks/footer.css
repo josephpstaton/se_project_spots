@@ -1,0 +1,17 @@
+.footer {
+  background-color: #fcf5e5;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 136px;
+  width: 668px;
+  margin: 0 auto;
+}
+
+.footer__copyright {
+  margin: 60px 0px 60px;
+  justify-content: center;
+  align-items: center;
+}
