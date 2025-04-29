@@ -1,0 +1,11 @@
+.content {
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+@media screen and (max-width: 627px) {
+  .content {
+    max-width: 288px;
+  }
+}
