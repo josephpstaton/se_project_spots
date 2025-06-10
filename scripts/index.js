@@ -75,7 +75,7 @@ function getCardElement(data) {
 
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
   cardLikeBtnEl.addEventListener("click", () => {
-    cardLikeBtnEl.classList.toggle("card__like-button_active");
+    cardLikeBtnEl.classList.toggle("card__like-btn_active");
 
     return cardElement;
   });
@@ -94,6 +94,10 @@ function getCardElement(data) {
 
   return cardElement;
 }
+
+previewModalCloseBtn.addEventListener("click", function () {
+  closeModal(previewModal);
+});
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
