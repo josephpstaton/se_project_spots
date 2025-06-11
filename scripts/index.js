@@ -1,4 +1,4 @@
-const intialCards = [
+const initialCards = [
   {
     name: "Golden Gate Bridge",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
@@ -118,12 +118,13 @@ function handleNewPostSubmit(evt) {
     link: linkInputNewPost.value,
   };
 
-  console.log(nameInputNewPost.value);
-  console.log(linkInputNewPost.value);
-
   const cardElement = getCardElement(inputValues);
 
-  cardsList.append(cardElement);
+  cardsList.prepend(cardElement);
+
+  // Clear the input fields to reset the form for the next input
+  nameInputNewPost.value = "";
+  linkInputNewPost.value = "";
 
   closeModal(newPostModal);
 }
@@ -149,7 +150,7 @@ newPostCloseBtn.addEventListener("click", function () {
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 addCardFormEl.addEventListener("submit", handleNewPostSubmit);
 
-intialCards.forEach(function (item) {
+initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
