@@ -21,7 +21,7 @@
 .modal_opened {
   visibility: visible;
   opacity: 1;
-  transition: 0.0s;
+  transition: 0s;
 }
 
 .modal__container {
@@ -85,6 +85,7 @@
   font-weight: 500;
   font-size: 16px;
   color: rgba(33, 33, 33, 0.7);
+  display: block;
 }
 
 .modal__input {
@@ -100,12 +101,29 @@
   font-size: 20px;
 }
 
+.modal__input-type-error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
 .modal__input:hover {
   cursor: url(../images/hover.svg);
 }
 
 .model__input::placeholder {
   color: rgba(33, 33, 33, 0.3);
+}
+
+.modal__error {
+  display: block;
+  color: #ff0000;
+  opacity: 70%;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 110.00000000000001%;
+  max-width: 680px;
+  height: 18px;
+  margin-top: 8px;
 }
 
 .modal__submit-btn {
@@ -144,7 +162,7 @@
   border-radius: 8px;
 }
 
-.modal__caption{
+.modal__caption {
   color: white;
   background: #212121 no-repeat;
   border-radius: 8px;
@@ -155,63 +173,60 @@
   margin-top: 12px;
 }
 
-
-
-  @media screen and (max-width: 480px) {
-    .modal {
-    }
-
-    .modal__container {
-      padding: 12px;
-    }
-
-    .modal__image {
-      width: 100%;
-    }
-
-    .modal__title {
-      font-size: 20px;
-      margin: 10px 0 34px;
-    }
-
-    .modal__close-btn {
-      top: 12px;
-      right: 12px;
-    }
-
-    .modal__label {
-      margin-bottom: 24px;
-    }
-
-    .modal__submit-btn {
-      max-width: 480px;
-    }
-
-    .modal__input {
-      font-size: 16px;
-      gap: 10px;
-      box-sizing: border-box;
-    }
-
-    .modal__caption {
-      font-size: 16px;
-    }
+@media screen and (max-width: 480px) {
+  .modal {
   }
 
+  .modal__container {
+    padding: 12px;
+  }
+
+  .modal__image {
+    width: 100%;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    margin: 10px 0 34px;
+  }
+
+  .modal__close-btn {
+    top: 12px;
+    right: 12px;
+  }
+
+  .modal__label {
+    margin-bottom: 24px;
+  }
+
+  .modal__submit-btn {
+    max-width: 480px;
+  }
+
+  .modal__input {
+    font-size: 16px;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  .modal__caption {
+    font-size: 16px;
+  }
+}
 
 @media screen and (max-width: 627px) {
-    .modal__close-btn {
-      top: 10px;
-      right: 0;
-      padding: 0;
-    }
-
-    .modal__close_type_preview {
-      top:-48px;
-      right: 0;
-    }
-
-    .modal__image {
-      max-width: unset;
-    }
+  .modal__close-btn {
+    top: 10px;
+    right: 0;
+    padding: 0;
   }
+
+  .modal__close_type_preview {
+    top: -48px;
+    right: 0;
+  }
+
+  .modal__image {
+    max-width: unset;
+  }
+}
