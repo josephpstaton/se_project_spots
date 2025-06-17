@@ -34,6 +34,7 @@ const editProfileBtn = document.querySelector(".profile__edit-btn");
 
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
+const editProfileSubmitBtn = editProfileModal.querySelector(".modal__btn");
 const editProfileNameInput = editProfileModal.querySelector(
   "#profile-name-input"
 );
@@ -43,6 +44,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 
 const newPostModal = document.querySelector("#new-post-modal");
 const addCardFormEl = newPostModal.querySelector(".modal__form");
+const addCardFormSubmitBtn = newPostModal.querySelector(".modal__btn");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostBtn = document.querySelector(".profile__add-btn");
 const nameInputNewPost = newPostModal.querySelector("#card-image");
@@ -76,8 +78,6 @@ function getCardElement(data) {
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
   cardLikeBtnEl.addEventListener("click", () => {
     cardLikeBtnEl.classList.toggle("card__like-btn_active");
-
-    return cardElement;
   });
 
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
@@ -107,6 +107,8 @@ function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
+  evt.target.reset();
+  disableBtn(addCardFormSubmitBtn, editProfileSubmitBtn);
   closeModal(editProfileModal);
 }
 
@@ -122,7 +124,6 @@ function handleNewPostSubmit(evt) {
 
   cardsList.prepend(cardElement);
 
-  // Clear the input fields to reset the form for the next input
   nameInputNewPost.value = "";
   linkInputNewPost.value = "";
 
@@ -132,6 +133,7 @@ function handleNewPostSubmit(evt) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  resetValidation(editProfileNameInput, editProfileDescriptionInput);
   openModal(editProfileModal);
 });
 
