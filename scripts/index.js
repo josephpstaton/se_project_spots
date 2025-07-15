@@ -48,8 +48,8 @@ const addCardFormEl = newPostModal.querySelector(".modal__form");
 const addCardFormSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostBtn = document.querySelector(".profile__add-btn");
-const nameInputNewPost = newPostModal.querySelector("#card-image");
-const linkInputNewPost = newPostModal.querySelector("#card-caption");
+const nameInputNewPost = newPostModal.querySelector("#card-caption");
+const linkInputNewPost = newPostModal.querySelector("#card-image");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
