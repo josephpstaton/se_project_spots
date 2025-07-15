@@ -58,9 +58,7 @@ const previewCaptionEl = previewModal.querySelector(".modal__caption");
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-}
+
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
@@ -171,5 +169,12 @@ function openModal(modal) {
       closeModal(modal);
     }
   });
-  modal.classList.add("modal_is-opened");
+
+  modal.addEventListener("click", function (evt) {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  });
+
+  modal.classList.add("modal_opened");
 }
