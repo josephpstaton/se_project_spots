@@ -130,6 +130,12 @@ function handleNewPostSubmit(evt) {
   linkInputNewPost.value = "";
 
   closeModal(newPostModal);
+  resetValidation(
+    addCardFormEl,
+    [nameInputNewPost, linkInputNewPost],
+    settings
+  );
+  disableBtn(addCardFormSubmitBtn, settings);
 }
 
 editProfileBtn.addEventListener("click", function () {
