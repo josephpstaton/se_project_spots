@@ -2,7 +2,7 @@ const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: ".modal__submit-btn_disabled",
+  inactiveButtonClass: "modal__submit-btn_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
@@ -40,11 +40,12 @@ const toggleButtonState = (inputList, btnEl, config) => {
     disableBtn(btnEl, config);
   } else {
     btnEl.disabled = false;
+    btnEl.classList.remove(config.inactiveButtonClass);
   }
 };
 
 const disableBtn = (btnEl, config) => {
-  btnEl.classList.remove(config.inactiveButtonClass);
+  btnEl.classList.add(config.inactiveButtonClass);
   btnEl.disabled = true;
 };
 
