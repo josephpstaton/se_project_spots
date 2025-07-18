@@ -110,7 +110,7 @@ function handleEditProfileSubmit(evt) {
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   evt.target.reset();
-  disableBtn(editProfileSubmitBtn);
+  disableBtn(editProfileSubmitBtn, settings);
   closeModal(editProfileModal);
 }
 
