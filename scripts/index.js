@@ -103,6 +103,7 @@ previewModalCloseBtn.addEventListener("click", function () {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
 }
 
 function handleEditProfileSubmit(evt) {
@@ -169,18 +170,16 @@ initialCards.forEach(function (item) {
   cardsList.append(cardElement);
 });
 
-function openModal(modal) {
-  document.addEventListener("keydown", function (evt) {
-    if (evt.key === "Escape") {
-      closeModal(modal);
-    }
-  });
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".modal_opened");
 
-  modal.addEventListener("click", function (evt) {
-    if (evt.target === modal) {
-      closeModal(modal);
-    }
-  });
+    closeModal(openedPopup);
+  }
+}
+
+function openModal(modal) {
+  document.addEventListener("keydown", handleEscape);
 
   modal.classList.add("modal_opened");
 }
