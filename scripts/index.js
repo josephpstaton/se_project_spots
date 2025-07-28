@@ -61,6 +61,7 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
 }
 
 const cardTemplate = document
@@ -101,10 +102,6 @@ previewModalCloseBtn.addEventListener("click", function () {
   closeModal(previewModal);
 });
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", handleEscape);
-}
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
