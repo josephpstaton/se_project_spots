@@ -98,6 +98,10 @@ previewModalCloseBtn.addEventListener("click", function () {
   document.removeEventListener("keydown", handleEscape);
 });
 
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
+}
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
@@ -173,6 +177,14 @@ function handleEscape(evt) {
 
 function openModal(modal) {
   document.addEventListener("keydown", handleEscape);
-
+  modal.addEventListener("click", function (evt) {});
   modal.classList.add("modal_opened");
+  modal.addEventListener("click", function (evt) {
+    if (
+      evt.target === modal ||
+      evt.target.classList.contains("modal__close-btn")
+    ) {
+      closeModal(modal);
+    }
+  });
 }
