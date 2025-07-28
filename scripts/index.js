@@ -59,11 +59,6 @@ const previewCaptionEl = previewModal.querySelector(".modal__caption");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", handleEscape);
-}
-
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -100,6 +95,7 @@ function getCardElement(data) {
 
 previewModalCloseBtn.addEventListener("click", function () {
   closeModal(previewModal);
+  document.removeEventListener("keydown", handleEscape);
 });
 
 
