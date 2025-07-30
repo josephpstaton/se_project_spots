@@ -93,11 +93,6 @@ function getCardElement(data) {
   return cardElement;
 }
 
-previewModalCloseBtn.addEventListener("click", function () {
-  closeModal(previewModal);
-  document.removeEventListener("keydown", handleEscape);
-});
-
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscape);
@@ -128,11 +123,6 @@ function handleNewPostSubmit(evt) {
   linkInputNewPost.value = "";
 
   closeModal(newPostModal);
-  resetValidation(
-    addCardFormEl,
-    [nameInputNewPost, linkInputNewPost],
-    settings
-  );
   disableBtn(addCardFormSubmitBtn, settings);
 }
 
@@ -147,16 +137,8 @@ editProfileBtn.addEventListener("click", function () {
   openModal(editProfileModal);
 });
 
-editProfileCloseBtn.addEventListener("click", function () {
-  closeModal(editProfileModal);
-});
-
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
-});
-
-newPostCloseBtn.addEventListener("click", function () {
-  closeModal(newPostModal);
 });
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
@@ -177,14 +159,18 @@ function handleEscape(evt) {
 
 function openModal(modal) {
   document.addEventListener("keydown", handleEscape);
-  modal.addEventListener("click", function (evt) {});
   modal.classList.add("modal_opened");
-  modal.addEventListener("click", function (evt) {
-    if (
-      evt.target === modal ||
-      evt.target.classList.contains("modal__close-btn")
-    ) {
-      closeModal(modal);
+}
+
+const popups = document.querySelectorAll(".modal");
+
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal_opened")) {
+      closeModal(popup);
+    }
+    if (evt.target.classList.contains("modal__close-btn")) {
+      closeModal(popup);
     }
   });
-}
+});
